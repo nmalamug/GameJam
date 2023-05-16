@@ -6,7 +6,7 @@ public class RedBallMovement : MonoBehaviour
 {
     public float xvel;
     public float yvel;
-    public float speed = (float)10;
+    public float speed;
     bool up, down, left, right;
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,10 @@ public class RedBallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        getKeyInputs();
     }
 
     void FixedUpdate(){
-        getKeyInputs();
         updateVelocity();
     }
 
@@ -78,9 +77,9 @@ public class RedBallMovement : MonoBehaviour
         }else if(xvel < 0){
             xvel += (float).5;
         }
-        if(xvel > 0){
+        if(yvel > 0){
             yvel -= (float).5;
-        }else if(xvel < 0){
+        }else if(yvel < 0){
             yvel += (float).5;
         }
         
