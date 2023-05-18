@@ -19,5 +19,6 @@ public class MenuLogic : MonoBehaviour
 
     public void startGame(){
         SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("uiScene", LoadSceneMode.Additive);
     }
 }
