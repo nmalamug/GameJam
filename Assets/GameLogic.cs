@@ -17,7 +17,5 @@ public class GameLogic : MonoBehaviour
         
     }
 
-    public void goToMenu(){
-        SceneManager.LoadScene("MainMenu");
-    }
+
 }
