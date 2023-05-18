@@ -66,7 +66,7 @@ public class SoundManager : MonoBehaviour
     {
         // Play the appropriate music depending on the scene
         if (scene.name == "MainMenu")
-        {
+        {           
             PlayMusic(menuMusic);
         }
         else if (scene.name == "GameScene")

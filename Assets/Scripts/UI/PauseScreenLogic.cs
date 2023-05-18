@@ -18,6 +18,7 @@ public class PauseScreenLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Checks to see if escape key is pressed, and pauses or unpauses game. 
         if(Input.GetKeyDown(KeyCode.Escape)){
             if(!gameIsPaused){
                 pauseGame();
