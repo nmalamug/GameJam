@@ -18,7 +18,13 @@ public class PauseScreenLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            if(!gameIsPaused){
+                pauseGame();
+            }else{
+                unpauseGame();
+            }
+        }
     }
     
     public void goToMenu(){
