@@ -9,6 +9,7 @@ public class MenuLogic : MonoBehaviour
     void Start()
     {
 //hi
+//hi!!
     }
 
     // Update is called once per frame
@@ -18,7 +19,13 @@ public class MenuLogic : MonoBehaviour
     }
 
     public void startGame(){
+        //Starts the game. 
+        //When using LoadSceneMode.Additive, you can load multiple scenes at once. 
         SceneManager.LoadScene("GameScene");
         SceneManager.LoadScene("uiScene", LoadSceneMode.Additive);
+    }
+
+    public void startSettings(){
+        SceneManager.LoadScene("SettingsScene");
     }
 }
