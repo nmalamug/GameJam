@@ -29,16 +29,22 @@ public class SettingsLogic : MonoBehaviour
     }
 
     public void onInvertToggle(){
+        /*
+        This function calls AFTER unity changes Toggle.isOn from a click. 
+        So when clicking checkbox:
+        checkbox clicked -> unity updates toggle on/off -> unity calls toggle function
+        */
         if(invertControls.isOn){
-            //If the setting is on, then turn off
+            //Turn the setting on
             PlayerPrefs.SetInt(InvertControls, 1);
         }else{
-            //If off then turn on
+            //Turn the setting off. 
             PlayerPrefs.SetInt(InvertControls, 0);
         }
     }
 
     public void onVolumeChange(){
+        //Set the volume of the game to what the player chose. 
         PlayerPrefs.SetFloat(VolumeControl, volumeControl.value); 
     }
 
