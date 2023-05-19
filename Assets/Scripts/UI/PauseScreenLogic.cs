@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseScreenLogic : MonoBehaviour
 {
-    private bool gameIsPaused = false;
+    public bool gameIsPaused = false;
     public GameObject pauseScreen;
 
 
@@ -29,11 +29,13 @@ public class PauseScreenLogic : MonoBehaviour
     }
     
     public void goToMenu(){
+        //Sets the speed of the game back to normal then quits. 
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void pauseGame(){
+        //If the game isn't paused, pauses the game by setting speed to 0. 
         if(!gameIsPaused){
             gameIsPaused = true;
             Time.timeScale = 0;
@@ -42,6 +44,7 @@ public class PauseScreenLogic : MonoBehaviour
     }
     
     public void unpauseGame(){
+        //Sets game speed back to normal and unpauses game. 
         Time.timeScale = 1;
         gameIsPaused = false;
         pauseScreen.SetActive(false);

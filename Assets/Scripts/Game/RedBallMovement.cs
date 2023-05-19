@@ -25,7 +25,7 @@ public class RedBallMovement : MonoBehaviour
             invertControls= -1;
         }else{
             invertControls = 1;
-        }    
+        }
         speed *= invertControls;
     }  
 
@@ -68,7 +68,7 @@ public class RedBallMovement : MonoBehaviour
     }
 
     private void updateVelocity(){
-        
+        //Sets the speed of the ball depending on direction of motion.
         if(right){
             xvel =  speed;//*Time.deltaTime;
         }
