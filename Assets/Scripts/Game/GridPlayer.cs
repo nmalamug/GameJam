@@ -20,16 +20,16 @@ public class GridPlayer : MonoBehaviour
         //Update the grid position of the object based on button press
         //Then update the surroundings (Managed in GameLogic.cs)
         if(Input.GetKeyDown(KeyCode.W) && gameLogic.isValidMove("up")){
-            gridPosition.y++;
+            gridPosition.y += (int)Time.timeScale;
             gameLogic.updateSurroundings();
         }else if(Input.GetKeyDown(KeyCode.A) && gameLogic.isValidMove("left")){
-            gridPosition.x--;
+            gridPosition.x -= (int)Time.timeScale;
             gameLogic.updateSurroundings();            
         }else if(Input.GetKeyDown(KeyCode.S) && gameLogic.isValidMove("down")){
-            gridPosition.y--;
+            gridPosition.y -= (int)Time.timeScale;
             gameLogic.updateSurroundings();
         }else if(Input.GetKeyDown(KeyCode.D) && gameLogic.isValidMove("right")){
-            gridPosition.x++;
+            gridPosition.x += (int)Time.timeScale;
             gameLogic.updateSurroundings();
         }else if(Input.GetKeyDown(KeyCode.X) && gameLogic.isAdjacentInteractable()){
             /*
