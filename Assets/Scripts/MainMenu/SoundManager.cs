@@ -64,6 +64,10 @@ public class SoundManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        //Set the volume to the specified value
+        soundEffectSource.volume = PlayerPrefs.GetFloat("VolumeControl", .75f);
+        musicSource.volume = PlayerPrefs.GetFloat("VolumeControl", .75f);
+        
         // Play the appropriate music depending on the scene
         if (scene.name == "MainMenu")
         {           

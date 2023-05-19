@@ -8,6 +8,8 @@ public class RedBallMovement : MonoBehaviour
     public float yvel;
     public float speed;
     bool up, down, left, right;
+    private int invertControls;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,15 @@ public class RedBallMovement : MonoBehaviour
         right = false;
         xvel = 0;
         yvel = 0;
-    }
+
+        //Implement the setting for Inverting Controls Here
+        if(PlayerPrefs.GetInt("InvertControls", 1) > 0){
+            invertControls= -1;
+        }else{
+            invertControls = 1;
+        }    
+        speed *= invertControls;
+    }  
 
     // Update is called once per frame
     void Update()
@@ -30,6 +40,7 @@ public class RedBallMovement : MonoBehaviour
     }
 
     private void getKeyInputs(){
+        //Take in inputs, set a flag to determine which keys are pressed. 
         if(Input.GetKeyDown(KeyCode.W)){
             up = true;
         }
@@ -70,8 +81,11 @@ public class RedBallMovement : MonoBehaviour
         if(down){
             yvel = -speed;//*Time.deltaTime;
         }
-        
+
+        //Calculate new position based on velocity
         transform.position = transform.position + new Vector3(xvel,yvel,0);
+        
+        //Decelerate the player character. 
         if(xvel > 0){
             xvel -= (float).5;
         }else if(xvel < 0){
