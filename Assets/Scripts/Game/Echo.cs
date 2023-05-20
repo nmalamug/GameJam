@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine;
 
+<<<<<<< Updated upstream
 public class Echo : MonoBehaviour
 {
     public List<Action> actions = new List<Action>();
@@ -33,3 +34,6 @@ public class Echo : MonoBehaviour
         }
     }
 }
+=======
+
+>>>>>>> Stashed changes

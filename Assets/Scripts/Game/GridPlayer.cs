@@ -1,18 +1,20 @@
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GridPlayer : MonoBehaviour
 {
+<<<<<<< Updated upstream
     public GameLogic gameLogic;
     public List<Action> actions = new List<Action>();
     public Vector3Int gridPosition = new Vector3Int(0,0,0);
+=======
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+>>>>>>> Stashed changes
+
+   // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
@@ -44,9 +46,7 @@ public class GridPlayer : MonoBehaviour
             gameLogic.updateSurroundings();
         }
     }
+=======
+>>>>>>> Stashed changes
 
-    void FixedUpdate(){
-        //Update the position of the object on screen. 
-        transform.position = gameLogic.getScreenPosition(gridPosition);
-    }
 }
