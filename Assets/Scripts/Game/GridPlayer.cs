@@ -19,23 +19,25 @@ public class GridPlayer : MonoBehaviour
     {
         //Update the grid position of the object based on button press
         //Then update the surroundings (Managed in GameLogic.cs)
-        if(Input.GetKeyDown(KeyCode.W) && gameLogic.isValidMove("up")){
-            gridPosition.y += (int)Time.timeScale;
-            gameLogic.updateSurroundings();
-        }else if(Input.GetKeyDown(KeyCode.A) && gameLogic.isValidMove("left")){
-            gridPosition.x -= (int)Time.timeScale;
-            gameLogic.updateSurroundings();            
-        }else if(Input.GetKeyDown(KeyCode.S) && gameLogic.isValidMove("down")){
-            gridPosition.y -= (int)Time.timeScale;
-            gameLogic.updateSurroundings();
-        }else if(Input.GetKeyDown(KeyCode.D) && gameLogic.isValidMove("right")){
-            gridPosition.x += (int)Time.timeScale;
-            gameLogic.updateSurroundings();
-        }else if(Input.GetKeyDown(KeyCode.X) && gameLogic.isAdjacentInteractable()){
-            /*
-                Put code here to call function to interact with object
-            */
-            gameLogic.updateSurroundings();
+        if(Time.timeScale != 0){
+            if(Input.GetKeyDown(KeyCode.W) && gameLogic.isValidMove("up")){
+                gridPosition.y++;
+                gameLogic.updateSurroundings();
+            }else if(Input.GetKeyDown(KeyCode.A) && gameLogic.isValidMove("left")){
+                gridPosition.x--;
+                gameLogic.updateSurroundings();            
+            }else if(Input.GetKeyDown(KeyCode.S) && gameLogic.isValidMove("down")){
+                gridPosition.y--;
+                gameLogic.updateSurroundings();
+            }else if(Input.GetKeyDown(KeyCode.D) && gameLogic.isValidMove("right")){
+                gridPosition.x++ ;
+                gameLogic.updateSurroundings();
+            }else if(Input.GetKeyDown(KeyCode.X) && gameLogic.isAdjacentInteractable()){
+                /*
+                    Put code here to call function to interact with object
+                */
+                gameLogic.updateSurroundings();
+            }
         }
     }
 

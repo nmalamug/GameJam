@@ -7,15 +7,12 @@ public class GameLogic : MonoBehaviour
 {
     public GridLayout grid;
     public GridPlayer player;
-    public float tileWidth;
-    public float tileHeight;
+    public EntityManager entityManager;
     
     // Start is called before the first frame update
     void Start()
     {
-        
-        tileWidth = grid.cellSize.x;
-        tileHeight = grid.cellSize.y;
+
     }
 
     // Update is called once per frame
@@ -29,12 +26,12 @@ public class GameLogic : MonoBehaviour
             Implement code here to interact, update enemy
             positions, update positions of echoes, update level state
         */
-        Debug.Log("Updated!");
+        entityManager.updateEntities();
     }
 
     public Vector3 getScreenPosition(Vector3Int gridPosition){
-        float x = tileWidth * (gridPosition.x + .5f);
-        float y = tileHeight * (gridPosition.y + .5f);
+        float x = grid.cellSize.x * (gridPosition.x + .5f);
+        float y = grid.cellSize.y * (gridPosition.y + .5f);
         return new Vector3(x,y,0);
         //For entities in a list update entities
     }
