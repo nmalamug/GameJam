@@ -123,6 +123,69 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &27520966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 27520967}
+  - component: {fileID: 27520968}
+  - component: {fileID: 27520969}
+  m_Layer: 0
+  m_Name: EntityManager
+  m_TagString: EntityManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &27520967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27520966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &27520968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27520966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527bec664c6765f43bb5cccae8bad800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEntities: []
+  basicEnemy: {fileID: 2442337804013892955, guid: a51e0f2698fa298468fba7e4a7c3210f, type: 3}
+  aSwitch: {fileID: 865552549589983540, guid: c6e6e572f7dd9cc4db57d4e22afd06ec, type: 3}
+--- !u!114 &27520969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27520966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a386f766f5c049347b9e037198881dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridPosition: {x: 0, y: 0, z: 0}
+  entityManager: {fileID: 27520968}
+  gameLogic: {fileID: 903553113}
 --- !u!1 &49321279
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,9 +595,8 @@ MonoBehaviour:
   maxIterations: 5
   grid: {fileID: 1357074113}
   player: {fileID: 2017927104}
-  tileWidth: 0
-  tileHeight: 0
-  echoSprite: {fileID: 0}
+
+  entityManager: {fileID: 27520968}
 --- !u!1 &1357074112
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +640,7 @@ Transform:
   m_Children:
   - {fileID: 1959146149}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1677775922
 GameObject:
@@ -5390,7 +5452,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 38.435, y: -90, z: 90}
 --- !u!1 &1720369375
 GameObject:

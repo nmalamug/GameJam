@@ -24,24 +24,46 @@ public class GridPlayer : MonoBehaviour
    {
        //Update the grid position of the object based on button press
        //Then update the surroundings (Managed in GameLogic.cs)
+       if(Time.timeScale != 0){
        if(Input.GetKeyDown(KeyCode.W) && gameLogic.isValidMove("up")){
-           gridPosition.y += (int)Time.timeScale;
+           gridPosition.y++;
            actions.Add(new Action(Action.ActionType.Move, gridPosition, "up"));
            gameLogic.updateSurroundings();
        }else if(Input.GetKeyDown(KeyCode.A) && gameLogic.isValidMove("left")){
-           gridPosition.x -= (int)Time.timeScale;
+           gridPosition.x--;
            actions.Add(new Action(Action.ActionType.Move, gridPosition, "left"));
-           gameLogic.updateSurroundings();           
+           gameLogic.updateSurroundings();            
        }else if(Input.GetKeyDown(KeyCode.S) && gameLogic.isValidMove("down")){
-           gridPosition.y -= (int)Time.timeScale;
+           gridPosition.y--;
            actions.Add(new Action(Action.ActionType.Move, gridPosition, "down"));
            gameLogic.updateSurroundings();
        }else if(Input.GetKeyDown(KeyCode.D) && gameLogic.isValidMove("right")){
-           gridPosition.x += (int)Time.timeScale;
+           gridPosition.x++ ;
            actions.Add(new Action(Action.ActionType.Move, gridPosition, "right"));
            gameLogic.updateSurroundings();
        }else if(Input.GetKeyDown(KeyCode.X) && gameLogic.isAdjacentInteractable()){
-           actions.Add(new Action(Action.ActionType.Interact, gridPosition));
+            /*
+                Put code here to call function to interact with object
+            */
+            actions.Add(new Action(Action.ActionType.Interact, gridPosition));
+            gameLogic.updateSurroundings();
+        }
+       
+       if(Input.GetKeyDown(KeyCode.W) && gameLogic.isValidMove("up")){
+           gridPosition.y += (int)Time.timeScale;
+           gameLogic.updateSurroundings();
+       }else if(Input.GetKeyDown(KeyCode.A) && gameLogic.isValidMove("left")){
+           gridPosition.x -= (int)Time.timeScale;
+           gameLogic.updateSurroundings();           
+       }else if(Input.GetKeyDown(KeyCode.S) && gameLogic.isValidMove("down")){
+           gridPosition.y -= (int)Time.timeScale;
+           gameLogic.updateSurroundings();
+       }else if(Input.GetKeyDown(KeyCode.D) && gameLogic.isValidMove("right")){
+           gridPosition.x += (int)Time.timeScale;
+           
+           gameLogic.updateSurroundings();
+       }else if(Input.GetKeyDown(KeyCode.X) && gameLogic.isAdjacentInteractable()){
+           
 
 
            /*
@@ -56,6 +78,7 @@ public class GridPlayer : MonoBehaviour
        //Update the position of the object on screen.
        transform.position = gameLogic.getScreenPosition(gridPosition);
    }
+
 }
 
 
