@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c4cf3eab74d7442a8b9d9c21d84584e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  echoSprite: {fileID: 21300000, guid: 62ce01ddca719d34ea9648c586a7cc94, type: 3}
+  echoSprite: {fileID: 21300000, guid: 80c9dbd816496d64abe16f13e88b907a, type: 3}
 --- !u!212 &242088219
 SpriteRenderer:
   m_ObjectHideFlags: 0
