@@ -10,7 +10,6 @@ public class BasicEnemy : Entity
         getLogic();
         gridPosition = new Vector3Int((int)transform.position.x, (int)transform.position.y,0);
         setPosition();
-        
     }
     public override void updateEntity(){
         gridPosition.x++;

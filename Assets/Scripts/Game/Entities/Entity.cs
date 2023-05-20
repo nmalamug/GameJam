@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    //Outline code for entity objects
     public Vector3Int gridPosition;
     public EntityManager entityManager;
     public GameLogic gameLogic;

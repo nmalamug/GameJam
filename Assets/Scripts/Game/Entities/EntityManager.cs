@@ -11,11 +11,13 @@ public class EntityManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        //Use an array of game entities
         createBasicEnemy(new Vector3Int(3,3,0));
         createSwitch(new Vector3Int(5,5,0));
         createBasicEnemy(new Vector3Int(-3,-3,0));
     }
 
+    //Functions to add game entities to the list
     public void createSwitch(Vector3Int position){
         gameEntities.Add(Instantiate(aSwitch, position, transform.rotation));
     }
@@ -31,6 +33,7 @@ public class EntityManager : MonoBehaviour
     }
 
     public void updateEntities(){
+        //Updates the entities. 
         foreach(var i in gameEntities){
             Entity temp = i.GetComponent<Entity>();
             temp.updateEntity();
