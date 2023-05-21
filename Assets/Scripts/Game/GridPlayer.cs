@@ -22,6 +22,7 @@ public class GridPlayer : MonoBehaviour
     {
         startingPosition = gameLogic.getGridPosition(transform.position);
         gridPosition = startingPosition;
+        transform.rotation = new Quaternion(0,180,0,1);
     }
 
 
@@ -38,6 +39,7 @@ public class GridPlayer : MonoBehaviour
                 }else if(Input.GetKeyDown(KeyCode.A) && isValidMove("left")){
                     gridPosition.x--;
                     timeToUpdate = true;
+                    transform.rotation = new Quaternion(0,0,0,1);
                     actions.Add(new Action(Action.ActionType.Move, gridPosition, "left"));
                 }else if(Input.GetKeyDown(KeyCode.S) && isValidMove("down")){
                     gridPosition.y--;
@@ -46,6 +48,7 @@ public class GridPlayer : MonoBehaviour
                 }else if(Input.GetKeyDown(KeyCode.D) && isValidMove("right")){
                     gridPosition.x++ ;
                     timeToUpdate = true;
+                    transform.rotation = new Quaternion(0,180,0,1);
                     actions.Add(new Action(Action.ActionType.Move, gridPosition, "right"));
                 }else if(Input.GetKeyDown(KeyCode.X)){
                     timeToUpdate = true;
