@@ -10,7 +10,7 @@ public class GridPlayer : MonoBehaviour
     public GameLogic gameLogic;
     public List<action> actions = new List<action>();
     public Vector3Int gridPosition;
-    public Vector3Int startingPosition = new Vector3Int(0,0,0);
+    public Vector3Int startingPosition ;
     public EchoManager echoManager;
     private bool timeToUpdate;
     public LayerMask collide;
@@ -23,7 +23,9 @@ public class GridPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startingPosition = gameLogic.getGridPosition(transform.position);
         gridPosition = startingPosition;
+        transform.rotation = new Quaternion(0,180,0,1);
     }
 
 
@@ -40,7 +42,9 @@ public class GridPlayer : MonoBehaviour
                 }else if(Input.GetKeyDown(KeyCode.A) && isValidMove("left")){
                     gridPosition.x--;
                     timeToUpdate = true;
-                    actions.Add(new action(action.ActionType.Move, gridPosition, "left"));
+
+                    transform.rotation = new Quaternion(0,0,0,1);
+                    actions.Add(new Action(Action.ActionType.Move, gridPosition, "left"));
                 }else if(Input.GetKeyDown(KeyCode.S) && isValidMove("down")){
                     gridPosition.y--;
                     timeToUpdate = true;
@@ -48,7 +52,9 @@ public class GridPlayer : MonoBehaviour
                 }else if(Input.GetKeyDown(KeyCode.D) && isValidMove("right")){
                     gridPosition.x++ ;
                     timeToUpdate = true;
-                    actions.Add(new action(action.ActionType.Move, gridPosition, "right"));
+
+                    transform.rotation = new Quaternion(0,180,0,1);
+                    actions.Add(new Action(Action.ActionType.Move, gridPosition, "right"));
                 }else if(Input.GetKeyDown(KeyCode.X)){
                     timeToUpdate = true;
                     actions.Add(new action(action.ActionType.Interact, gridPosition));
