@@ -24023,6 +24023,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1575630674100563262, guid: 7fb869944ae824b688616e89bcc94369, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5197574733138170157, guid: 7fb869944ae824b688616e89bcc94369, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -24067,9 +24071,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5482629307275506223, guid: 7fb869944ae824b688616e89bcc94369, type: 3}
+      propertyPath: switchObject
+      value: 
+      objectReference: {fileID: 1254255896}
     - target: {fileID: 6208698142666989322, guid: 7fb869944ae824b688616e89bcc94369, type: 3}
       propertyPath: m_Name
       value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 6208698142666989322, guid: 7fb869944ae824b688616e89bcc94369, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fb869944ae824b688616e89bcc94369, type: 3}
