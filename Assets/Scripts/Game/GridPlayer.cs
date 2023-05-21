@@ -69,8 +69,8 @@ public class GridPlayer : MonoBehaviour
     }
 
     public void updateSurroundings(){
-        gameLogic.updateSurroundings();
         echoManager.updateEchos();
+        gameLogic.updateSurroundings();
     }
 
     public void echoReset(){
