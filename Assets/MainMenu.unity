@@ -149,6 +149,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+<<<<<<< Updated upstream:Assets/MainMenu.unity
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -193,6 +194,15 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &519420032
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e92c79b29f87874da1f2cc3e88fc10c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameIsPaused: 0
+  pauseScreen: {fileID: 2008587130}
+--- !u!4 &942866055
+>>>>>>> Stashed changes:Assets/Scenes/uiScene.unity
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
