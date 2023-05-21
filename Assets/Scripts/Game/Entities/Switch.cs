@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Switch : Entity
 {
+    bool isActive= true; 
+    public void Activate(){
+
+        isActive=!isActive;
+        Debug.Log("switch has been flipped");
+    }
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +26,8 @@ public class Switch : Entity
         gameLogic = GameObject.FindGameObjectWithTag("Logic").GetComponent<GameLogic>();
     }
     public override void updateEntity(){
-        Debug.Log("Switch is Here!");
     }
-    public override void setPosition()
-    {
-        transform.position = gameLogic.getScreenPosition(gridPosition);
-    }
+
 
     // Update is called once per frame
     void Update()

@@ -44,8 +44,6 @@ public class EchoManager : MonoBehaviour
             if (i != null && i.Count > 0)
             {
                 Action action = i.Dequeue();
-
-
                 if (action.actionType == Action.ActionType.Move)
                 {
                     usableEchos[echonum].target = gameLogic.getScreenPosition(action.position);
