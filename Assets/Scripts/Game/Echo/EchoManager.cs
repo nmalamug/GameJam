@@ -47,6 +47,12 @@ public class EchoManager : MonoBehaviour
                 if (action.actionType == Action.ActionType.Move)
                 {
                     usableEchos[echonum].target = gameLogic.getScreenPosition(action.position);
+                    if(action.direction == "right"){
+                        usableEchos[echonum].transform.rotation = new Quaternion(0,180,0,1);
+                    }
+                    if(action.direction == "left"){
+                        usableEchos[echonum].transform.rotation = new Quaternion(0,0,0,1);
+                    }
                 }
                 else if (action.actionType == Action.ActionType.Interact)
                 {
@@ -73,6 +79,7 @@ public class EchoManager : MonoBehaviour
             assignID++;
             i.target = gameLogic.getScreenPosition(echoStartingPos);
             i.transform.position = gameLogic.getScreenPosition(echoStartingPos);
+            i.transform.rotation = new Quaternion(0,180,0,1);
         }
     }
 

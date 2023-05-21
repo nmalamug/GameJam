@@ -10,7 +10,7 @@ public class GridPlayer : MonoBehaviour
     public GameLogic gameLogic;
     public List<Action> actions = new List<Action>();
     public Vector3Int gridPosition;
-    public Vector3Int startingPosition = new Vector3Int(0,0,0);
+    public Vector3Int startingPosition ;
     public EchoManager echoManager;
     private bool timeToUpdate;
     public LayerMask collide;
@@ -23,6 +23,7 @@ public class GridPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startingPosition = gameLogic.getGridPosition(transform.position);
         gridPosition = startingPosition;
         transform.rotation = new Quaternion(0,180,0,1);
     }
