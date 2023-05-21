@@ -52,6 +52,8 @@ public class GridPlayer : MonoBehaviour
                     gameLogic.processInteraction(id);
                 }else if(Input.GetKeyDown(KeyCode.Q) && echoManager.canCreateEcho()){
                     echoReset();
+                }else if(Input.GetKeyDown(KeyCode.R)){
+                    levelReset();
                 }
             }
             if(timeToUpdate){
@@ -72,11 +74,19 @@ public class GridPlayer : MonoBehaviour
     }
 
     public void echoReset(){
+        gameLogic.doEchoReset();
         echoManager.createEcho(startingPosition, actions);
         echoManager.resetEchos();
         actions = new List<Action>();
         gridPosition = startingPosition;
         transform.position = gameLogic.getScreenPosition(startingPosition);
+    }
+    void levelReset(){
+        gameLogic.doLevelReset();
+        echoManager.resetLevel();
+        gridPosition = startingPosition;
+        transform.position = gameLogic.getScreenPosition(startingPosition);
+        actions = new List<Action>();
     }
 
     bool isValidMove(string direction){

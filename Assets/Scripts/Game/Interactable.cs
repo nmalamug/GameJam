@@ -9,14 +9,14 @@ public class Interactable : MonoBehaviour
     public HashSet<int> isInRange = new HashSet<int>();
     public KeyCode interactKey;
     public UnityEvent interactAction;
+    public UnityEvent echoReset;
+    public UnityEvent levelReset;
+    public UnityEvent playerMove;
+    public Vector3Int gridPosition;
+    public GameLogic gameLogic;
+
     // Start is called before the first frame update
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
 
     }
@@ -26,6 +26,25 @@ public class Interactable : MonoBehaviour
             interactAction.Invoke();
         }
     }
+
+    public void onEchoReset(){
+        echoReset.Invoke();
+    }
+
+    public void onLevelReset(){
+        levelReset.Invoke();
+    }
+
+    public void onPlayerMove(){
+        playerMove.Invoke();
+    }
+
+    public void snapToGrid(){
+        transform.parent.position = gameLogic.getScreenPosition(gridPosition);
+        transform.position = gameLogic.getScreenPosition(gridPosition);
+    
+    }
+
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Player"))
         {

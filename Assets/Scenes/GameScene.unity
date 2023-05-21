@@ -410,11 +410,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2541284754366445858, guid: c6e6e572f7dd9cc4db57d4e22afd06ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 2541284754366445858, guid: c6e6e572f7dd9cc4db57d4e22afd06ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.4
+      value: 5.68
       objectReference: {fileID: 0}
     - target: {fileID: 2541284754366445858, guid: c6e6e572f7dd9cc4db57d4e22afd06ec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1615,7 +1615,7 @@ GameObject:
   - component: {fileID: 1357074113}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Grid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1674,11 +1674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2541284754366445858, guid: c6e6e572f7dd9cc4db57d4e22afd06ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.54
+      value: -6.77
       objectReference: {fileID: 0}
     - target: {fileID: 2541284754366445858, guid: c6e6e572f7dd9cc4db57d4e22afd06ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.649
+      value: -2.79
       objectReference: {fileID: 0}
     - target: {fileID: 2541284754366445858, guid: c6e6e572f7dd9cc4db57d4e22afd06ec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1767,7 +1767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7088232932514676297, guid: 965edcbb00208492cb3d8ac2dd71e704, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7088232932514676297, guid: 965edcbb00208492cb3d8ac2dd71e704, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6818,7 +6818,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.28866667}

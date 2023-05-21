@@ -75,4 +75,15 @@ public class EchoManager : MonoBehaviour
             i.transform.position = gameLogic.getScreenPosition(echoStartingPos);
         }
     }
+
+    public void resetLevel(){
+        foreach(var i in echoes){
+            Destroy(i);
+        }
+        echoes = new List<GameObject>();
+        storedActions = new List<List<Action>>();
+        actionsToDo = new List<Queue<Action>>();
+        usableEchos = new List<Echo>();
+        numEchoes = 0;
+    }
 }

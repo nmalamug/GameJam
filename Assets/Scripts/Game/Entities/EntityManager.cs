@@ -10,7 +10,7 @@ public class EntityManager : MonoBehaviour
         //Updates the entities. 
         foreach(var i in gameEntities){
             Entity temp = i.GetComponent<Entity>();
-            temp.updateEntity();
+            //temp.updateEntity();
         }
     }
 }
