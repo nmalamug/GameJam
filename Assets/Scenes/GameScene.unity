@@ -385,6 +385,7 @@ MonoBehaviour:
   gameLogic: {fileID: 903553113}
   numEchoes: 0
   maxEchoes: 0
+  echoStartingPos: {x: 0, y: 0, z: 0}
 --- !u!4 &362294000
 Transform:
   m_ObjectHideFlags: 0
@@ -445,9 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 1357074113}
-  player: {fileID: 2017927104}
-  tileWidth: 0
-  tileHeight: 0
+  entityManager: {fileID: 27520968}
 --- !u!1 &1140696029
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +461,7 @@ GameObject:
   - component: {fileID: 1140696033}
   - component: {fileID: 1140696035}
   - component: {fileID: 1140696036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1177,7 @@ CompositeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 0
+  m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
@@ -1554,7 +1553,6 @@ CompositeCollider2D:
       - {x: 12.062522, y: -5}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
-  entityManager: {fileID: 27520968}
 --- !u!1 &1357074112
 GameObject:
   m_ObjectHideFlags: 0
@@ -6508,7 +6506,7 @@ Transform:
   m_GameObject: {fileID: 1959146148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1357074114}
@@ -13481,7 +13479,6 @@ GameObject:
   - component: {fileID: 2017927104}
   - component: {fileID: 2017927103}
   - component: {fileID: 2017927106}
-  - component: {fileID: 2017927107}
   m_Layer: 0
   m_Name: GridPlayerCharacter
   m_TagString: Untagged
@@ -13557,6 +13554,10 @@ MonoBehaviour:
   gridPosition: {x: 0, y: 0, z: 0}
   startingPosition: {x: 0, y: 0, z: 0}
   echoManager: {fileID: 362293999}
+  collide:
+    serializedVersion: 2
+    m_Bits: 64
+  speed: 15
 --- !u!4 &2017927105
 Transform:
   m_ObjectHideFlags: 0
@@ -13593,19 +13594,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &2017927107
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017927102}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 4.5, y: 5.95}
-  m_Direction: 1

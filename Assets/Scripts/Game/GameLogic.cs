@@ -55,39 +55,7 @@ public class GameLogic : MonoBehaviour
    }
 
 
-   public bool isValidMove(string moveDirection){
-       //Use this to determine if player can move there.
-       switch (moveDirection){
-           case "up":
-           /*
-               Pseudocode:
-               for all obstacles/enemies:
-               if(player.gridPosition.x != [obstacle x] && player.gridPosition.y+1 != [obstacle y]){
-                   //Do something
-               }
 
-
-               Can maybe circumvent this by including tilemap itself?
-           */
-               //Insert code for checking direction validity.
-             break;
-           case "down":
-
-
-             break;
-           case "left":
-
-
-             break;
-           case "right":
-
-
-             break;
-       }
-      
-       //Right now just returns true
-       return true;
-   }
 
 
 }

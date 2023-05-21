@@ -13,6 +13,8 @@ public class GridPlayer : MonoBehaviour
     public Vector3Int startingPosition = new Vector3Int(0,0,0);
     public EchoManager echoManager;
     private bool timeToUpdate;
+    public LayerMask collide;
+    public float speed = 15;
     
 
     // Start is called before the first frame update
@@ -28,19 +30,19 @@ public class GridPlayer : MonoBehaviour
         //Update the grid position of the object based on button press
         //Then update the surroundings (Managed in GameLogic.cs)
             if(Time.timeScale != 0){
-                if(Input.GetKeyDown(KeyCode.W) && gameLogic.isValidMove("up")){
+                if(Input.GetKeyDown(KeyCode.W) && isValidMove("up")){
                     gridPosition.y++;
                     timeToUpdate = true;
                     actions.Add(new Action(Action.ActionType.Move, gridPosition, "up"));
-                }else if(Input.GetKeyDown(KeyCode.A) && gameLogic.isValidMove("left")){
+                }else if(Input.GetKeyDown(KeyCode.A) && isValidMove("left")){
                     gridPosition.x--;
                     timeToUpdate = true;
                     actions.Add(new Action(Action.ActionType.Move, gridPosition, "left"));
-                }else if(Input.GetKeyDown(KeyCode.S) && gameLogic.isValidMove("down")){
+                }else if(Input.GetKeyDown(KeyCode.S) && isValidMove("down")){
                     gridPosition.y--;
                     timeToUpdate = true;
                     actions.Add(new Action(Action.ActionType.Move, gridPosition, "down"));
-                }else if(Input.GetKeyDown(KeyCode.D) && gameLogic.isValidMove("right")){
+                }else if(Input.GetKeyDown(KeyCode.D) && isValidMove("right")){
                     gridPosition.x++ ;
                     timeToUpdate = true;
                     actions.Add(new Action(Action.ActionType.Move, gridPosition, "right"));
@@ -62,7 +64,7 @@ public class GridPlayer : MonoBehaviour
 
     void FixedUpdate(){
         //Update the position of the object on screen.
-        transform.position = gameLogic.getScreenPosition(gridPosition);
+        transform.position = Vector3.MoveTowards(transform.position,gameLogic.getScreenPosition(gridPosition), speed*Time.deltaTime);
     }
 
     public void updateSurroundings(){
@@ -75,8 +77,34 @@ public class GridPlayer : MonoBehaviour
         echoManager.resetEchos();
         actions = new List<Action>();
         gridPosition = startingPosition;
+        transform.position = gameLogic.getScreenPosition(startingPosition);
     }
 
+    bool isValidMove(string direction){
+        switch (direction){
+            case "up":
+                if(Physics2D.OverlapCircle(gameLogic.getScreenPosition(gridPosition + Vector3Int.up), .4f, collide)){
+                    return false;
+                }
+             break;
+            case "down":
+                if(Physics2D.OverlapCircle(gameLogic.getScreenPosition(gridPosition + Vector3Int.down), .4f, collide)){
+                    return false;
+                }
+             break;
+            case "left":
+                if(Physics2D.OverlapCircle(gameLogic.getScreenPosition(gridPosition + Vector3Int.left), .4f, collide)){
+                    return false;
+                }
+             break;
+            case "right":
+                if(Physics2D.OverlapCircle(gameLogic.getScreenPosition(gridPosition + Vector3Int.right), .4f, collide)){
+                    return false;
+                }
+             break;
+        }
+        return true;
+    }
 }
 
 
