@@ -42,7 +42,7 @@ public class Switch : Entity
     }
 
     public void echoUpdate(){
-        gridPosition.x++;
+
     }
 
     public void levelReset(){
@@ -52,7 +52,6 @@ public class Switch : Entity
     }
 
     public void playerMove(){
-        gridPosition.y--;
     }
 
     // Start is called before the first frame update

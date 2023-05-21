@@ -9,6 +9,8 @@ public class Entity : MonoBehaviour
     public Vector3Int startingPosition;
     public GameLogic gameLogic;
     float speed = 15f;
+    public SpriteRenderer sprites;
+    public Sprite[] spriteArray;
     public void init(){
         getLogic();
         snapToGrid();

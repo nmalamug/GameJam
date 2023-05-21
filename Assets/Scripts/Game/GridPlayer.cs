@@ -44,7 +44,7 @@ public class GridPlayer : MonoBehaviour
                     timeToUpdate = true;
 
                     transform.rotation = new Quaternion(0,0,0,1);
-                    actions.Add(new Action(Action.ActionType.Move, gridPosition, "left"));
+                    actions.Add(new action(action.ActionType.Move, gridPosition, "left"));
                 }else if(Input.GetKeyDown(KeyCode.S) && isValidMove("down")){
                     gridPosition.y--;
                     timeToUpdate = true;
@@ -52,9 +52,8 @@ public class GridPlayer : MonoBehaviour
                 }else if(Input.GetKeyDown(KeyCode.D) && isValidMove("right")){
                     gridPosition.x++ ;
                     timeToUpdate = true;
-
                     transform.rotation = new Quaternion(0,180,0,1);
-                    actions.Add(new Action(Action.ActionType.Move, gridPosition, "right"));
+                    actions.Add(new action(action.ActionType.Move, gridPosition, "right"));
                 }else if(Input.GetKeyDown(KeyCode.X)){
                     timeToUpdate = true;
                     actions.Add(new action(action.ActionType.Interact, gridPosition));
@@ -99,6 +98,7 @@ public class GridPlayer : MonoBehaviour
     }
 
     bool isValidMove(string direction){
+
         switch (direction){
             case "up":
                 if(Physics2D.OverlapCircle(gameLogic.getScreenPosition(gridPosition + Vector3Int.up), .4f, collide)){
