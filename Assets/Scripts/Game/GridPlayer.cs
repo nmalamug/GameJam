@@ -8,7 +8,7 @@ using UnityEngine;
 public class GridPlayer : MonoBehaviour
 {
     public GameLogic gameLogic;
-    public List<Action> actions = new List<Action>();
+    public List<action> actions = new List<action>();
     public Vector3Int gridPosition;
     public Vector3Int startingPosition = new Vector3Int(0,0,0);
     public EchoManager echoManager;
@@ -36,22 +36,22 @@ public class GridPlayer : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.W) && isValidMove("up")){
                     gridPosition.y++;
                     timeToUpdate = true;
-                    actions.Add(new Action(Action.ActionType.Move, gridPosition, "up"));
+                    actions.Add(new action(action.ActionType.Move, gridPosition, "up"));
                 }else if(Input.GetKeyDown(KeyCode.A) && isValidMove("left")){
                     gridPosition.x--;
                     timeToUpdate = true;
-                    actions.Add(new Action(Action.ActionType.Move, gridPosition, "left"));
+                    actions.Add(new action(action.ActionType.Move, gridPosition, "left"));
                 }else if(Input.GetKeyDown(KeyCode.S) && isValidMove("down")){
                     gridPosition.y--;
                     timeToUpdate = true;
-                    actions.Add(new Action(Action.ActionType.Move, gridPosition, "down"));
+                    actions.Add(new action(action.ActionType.Move, gridPosition, "down"));
                 }else if(Input.GetKeyDown(KeyCode.D) && isValidMove("right")){
                     gridPosition.x++ ;
                     timeToUpdate = true;
-                    actions.Add(new Action(Action.ActionType.Move, gridPosition, "right"));
+                    actions.Add(new action(action.ActionType.Move, gridPosition, "right"));
                 }else if(Input.GetKeyDown(KeyCode.X)){
                     timeToUpdate = true;
-                    actions.Add(new Action(Action.ActionType.Interact, gridPosition));
+                    actions.Add(new action(action.ActionType.Interact, gridPosition));
                     gameLogic.processInteraction(id);
                 }else if(Input.GetKeyDown(KeyCode.Q) && echoManager.canCreateEcho()){
                     echoReset();
@@ -80,7 +80,7 @@ public class GridPlayer : MonoBehaviour
         gameLogic.doEchoReset();
         echoManager.createEcho(startingPosition, actions);
         echoManager.resetEchos();
-        actions = new List<Action>();
+        actions = new List<action>();
         gridPosition = startingPosition;
         transform.position = gameLogic.getScreenPosition(startingPosition);
     }
@@ -89,7 +89,7 @@ public class GridPlayer : MonoBehaviour
         echoManager.resetLevel();
         gridPosition = startingPosition;
         transform.position = gameLogic.getScreenPosition(startingPosition);
-        actions = new List<Action>();
+        actions = new List<action>();
     }
 
     bool isValidMove(string direction){

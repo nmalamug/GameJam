@@ -6,8 +6,8 @@ public class EchoManager : MonoBehaviour
 {
     public List<GameObject> echoes;
     public List<Echo> usableEchos;
-    public List<List<Action>> storedActions;
-    public List<Queue<Action>> actionsToDo;
+    public List<List<action>> storedActions;
+    public List<Queue<action>> actionsToDo;
     public GameObject anEcho;
     public GameLogic gameLogic;
     public int numEchoes;
@@ -17,8 +17,8 @@ public class EchoManager : MonoBehaviour
     void Start()
     {
         echoes = new List<GameObject>();
-        storedActions = new List<List<Action>>();
-        actionsToDo = new List<Queue<Action>>();
+        storedActions = new List<List<action>>();
+        actionsToDo = new List<Queue<action>>();
         numEchoes = 0;
         maxEchoes = 2;
     }
@@ -31,7 +31,7 @@ public class EchoManager : MonoBehaviour
         }
     }
 
-    public void createEcho(Vector3Int startingPosition, List<Action> actions){
+    public void createEcho(Vector3Int startingPosition, List<action> actions){
         echoStartingPos = startingPosition;
         echoes.Add(Instantiate(anEcho, gameLogic.getScreenPosition(startingPosition), transform.rotation));
         storedActions.Add(actions);
@@ -43,12 +43,12 @@ public class EchoManager : MonoBehaviour
         foreach(var i in actionsToDo){
             if (i != null && i.Count > 0)
             {
-                Action action = i.Dequeue();
-                if (action.actionType == Action.ActionType.Move)
+                action action = i.Dequeue();
+                if (action.actionType == action.ActionType.Move)
                 {
                     usableEchos[echonum].target = gameLogic.getScreenPosition(action.position);
                 }
-                else if (action.actionType == Action.ActionType.Interact)
+                else if (action.actionType == action.ActionType.Interact)
                 {
                     gameLogic.processInteraction(usableEchos[echonum].id);
                 }
@@ -59,10 +59,10 @@ public class EchoManager : MonoBehaviour
 
     public void resetEchos(){
         //Clear out the actions to do and add in new ones. 
-        actionsToDo = new List<Queue<Action>>();
+        actionsToDo = new List<Queue<action>>();
         usableEchos = new List<Echo>();
         foreach(var i in storedActions){
-            actionsToDo.Add(new Queue<Action>(i));
+            actionsToDo.Add(new Queue<action>(i));
         }
         foreach(var i in echoes){
             usableEchos.Add(i.GetComponent<Echo>());
@@ -81,8 +81,8 @@ public class EchoManager : MonoBehaviour
             Destroy(i);
         }
         echoes = new List<GameObject>();
-        storedActions = new List<List<Action>>();
-        actionsToDo = new List<Queue<Action>>();
+        storedActions = new List<List<action>>();
+        actionsToDo = new List<Queue<action>>();
         usableEchos = new List<Echo>();
         numEchoes = 0;
     }
