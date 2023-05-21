@@ -10,17 +10,19 @@ public class GridPlayer : MonoBehaviour
     public GameLogic gameLogic;
     public List<Action> actions = new List<Action>();
     public Vector3Int gridPosition;
-    public Vector3Int startingPosition;
+    public Vector3Int startingPosition = new Vector3Int(0,0,0);
     public EchoManager echoManager;
     private bool timeToUpdate;
     public LayerMask collide;
     public float speed = 15;
     public int id = 0;
 
+
+    List<Collider2D>inColliders= new List<Collider2D>();
+
     // Start is called before the first frame update
     void Start()
     {
-        startingPosition = gameLogic.getGridPosition(transform.position);
         gridPosition = startingPosition;
         transform.rotation = new Quaternion(0,180,0,1);
     }
@@ -73,8 +75,8 @@ public class GridPlayer : MonoBehaviour
     }
 
     public void updateSurroundings(){
-        echoManager.updateEchos();
         gameLogic.updateSurroundings();
+        echoManager.updateEchos();
     }
 
     public void echoReset(){
@@ -118,6 +120,7 @@ public class GridPlayer : MonoBehaviour
         }
         return true;
     }
+
 }
 
 
