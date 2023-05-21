@@ -48,7 +48,7 @@ public class EchoManager : MonoBehaviour
 
                 if (action.actionType == Action.ActionType.Move)
                 {
-                    usableEchos[echonum].transform.position = gameLogic.getScreenPosition(action.position);
+                    usableEchos[echonum].target = gameLogic.getScreenPosition(action.position);
                 }
                 else if (action.actionType == Action.ActionType.Interact)
                 {
@@ -70,6 +70,7 @@ public class EchoManager : MonoBehaviour
             usableEchos.Add(i.GetComponent<Echo>());
         }
         foreach(var i in usableEchos){
+            i.target = gameLogic.getScreenPosition(echoStartingPos);
             i.transform.position = gameLogic.getScreenPosition(echoStartingPos);
         }
     }

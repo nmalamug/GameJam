@@ -50,7 +50,9 @@ public class GridPlayer : MonoBehaviour
                     /*
                         Put code here to call function to interact with object
                     */
+                    timeToUpdate = true;
                     actions.Add(new Action(Action.ActionType.Interact, gridPosition));
+
                 }else if(Input.GetKeyDown(KeyCode.Q) && echoManager.canCreateEcho()){
                     echoReset();
                 }
