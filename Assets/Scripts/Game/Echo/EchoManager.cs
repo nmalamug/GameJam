@@ -50,7 +50,7 @@ public class EchoManager : MonoBehaviour
                 }
                 else if (action.actionType == Action.ActionType.Interact)
                 {
-                    // Code to interact with objects goes here
+                    gameLogic.processInteraction(usableEchos[echonum].id);
                 }
             }
             echonum++;
@@ -67,7 +67,10 @@ public class EchoManager : MonoBehaviour
         foreach(var i in echoes){
             usableEchos.Add(i.GetComponent<Echo>());
         }
+        int assignID = 1;
         foreach(var i in usableEchos){
+            i.id = assignID;
+            assignID++;
             i.target = gameLogic.getScreenPosition(echoStartingPos);
             i.transform.position = gameLogic.getScreenPosition(echoStartingPos);
         }

@@ -10,12 +10,12 @@ public class GameLogic : MonoBehaviour
     public GridLayout grid;
     public EntityManager entityManager;
 
-
+    public GameObject[] interactables;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        interactables = GameObject.FindGameObjectsWithTag("Interactable");
         //StartNewLevelIteration(); // Start the first iteration immediately
     }
     void Update()
@@ -28,7 +28,7 @@ public class GameLogic : MonoBehaviour
             Implement code here to interact, update enemy
             positions, update positions of echoes, update level state
         */
-        entityManager.updateEntities();
+        //entityManager.updateEntities();
     }
 
     public Vector3 getScreenPosition(Vector3Int gridPosition){
@@ -38,21 +38,14 @@ public class GameLogic : MonoBehaviour
         //For entities in a list update entities
     }
 
-   public bool isAdjacentInteractable(Vector3Int gridpos){
-       /*
-           Get Player grid position through player.gridPosition.x/y - x or y
-
-
-           For all entities in list
-           For all directions adjacent to player
-           Check if interactable
-       */
-       //For entities in list check if interactable by character
-
-
-       //For now, return true
-       return true;
-   }
+    public void processInteraction(int id){
+        foreach(var i in interactables){
+            var temp = i.GetComponent<Interactable>();
+            if(temp!=null){
+            temp.onInteract(id);
+            }
+        }
+    }
 
 
 

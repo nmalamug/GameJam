@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
-    public bool isInRange;
+    public HashSet<int> isInRange = new HashSet<int>();
     public KeyCode interactKey;
     public UnityEvent interactAction;
     // Start is called before the first frame update
@@ -18,25 +18,36 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isInRange){
-            if(Input.GetKeyDown(interactKey)){
-                interactAction.Invoke();
-            }
 
+    }
+
+    public void onInteract(int id){
+        if(isInRange.Contains(id)){
+            interactAction.Invoke();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Player"))
         {
-            isInRange = true;
+            isInRange.Add(0);
             Debug.Log("Player is in Range ");
         }
+        if(collision.gameObject.CompareTag("Echo")){
+            Echo temp = collision.gameObject.GetComponent<Echo>();
+            isInRange.Add(temp.id);
+            Debug.Log("Echo in Range");
+        }
     }
-        private void OnTriggerExit2D(Collider2D collision){
+    private void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.CompareTag("Player"))
         {
-            isInRange = false;
+            isInRange.Remove(0);
             Debug.Log("Player is not in Range ");
+        }
+        if(collision.gameObject.CompareTag("Echo")){
+            Echo temp = collision.gameObject.GetComponent<Echo>();
+            isInRange.Remove(temp.id);
+            Debug.Log("Echo not in Range");
         }
     }
 }

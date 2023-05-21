@@ -15,7 +15,7 @@ public class GridPlayer : MonoBehaviour
     private bool timeToUpdate;
     public LayerMask collide;
     public float speed = 15;
-    
+    public int id = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -46,13 +46,10 @@ public class GridPlayer : MonoBehaviour
                     gridPosition.x++ ;
                     timeToUpdate = true;
                     actions.Add(new Action(Action.ActionType.Move, gridPosition, "right"));
-                }else if(Input.GetKeyDown(KeyCode.X) && gameLogic.isAdjacentInteractable(gridPosition)){
-                    /*
-                        Put code here to call function to interact with object
-                    */
+                }else if(Input.GetKeyDown(KeyCode.X)){
                     timeToUpdate = true;
                     actions.Add(new Action(Action.ActionType.Interact, gridPosition));
-
+                    gameLogic.processInteraction(id);
                 }else if(Input.GetKeyDown(KeyCode.Q) && echoManager.canCreateEcho()){
                     echoReset();
                 }

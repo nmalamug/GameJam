@@ -6,9 +6,10 @@ using UnityEngine;
 public class Echo : MonoBehaviour
 {
     public Vector3 target;
+    public int id;
     void Start()
     {
-        
+
     }
 
     void FixedUpdate(){
