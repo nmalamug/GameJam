@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EchoManager : MonoBehaviour
 {
+    public EntityManager entityManager;
     public List<GameObject> echoes;
     public List<Echo> usableEchos;
     public List<List<Action>> storedActions;
@@ -38,26 +39,51 @@ public class EchoManager : MonoBehaviour
         numEchoes++;
     }
     
-    public void updateEchos(){
-        int echonum = 0;
-        foreach(var i in actionsToDo){
-            if (i != null && i.Count > 0)
+public void updateEchos(){
+    int echonum = 0;
+    foreach(var i in actionsToDo){
+        if (i != null && i.Count > 0)
+        {
+            Action action = i.Dequeue();
+            Echo currentEcho = usableEchos[echonum];
+            if (currentEcho != null)
             {
-                Action action = i.Dequeue();
-
-
                 if (action.actionType == Action.ActionType.Move)
                 {
-                    usableEchos[echonum].transform.position = gameLogic.getScreenPosition(action.position);
+                    currentEcho.gridPosition = action.position;
+                    currentEcho.transform.position = gameLogic.getScreenPosition(action.position);
                 }
                 else if (action.actionType == Action.ActionType.Interact)
                 {
-                    // Code to interact with objects goes here
+                    Debug.Log("Echo position: " + currentEcho.gridPosition);
+                    Debug.Log("EntityManager gameEntities count: " + entityManager.gameEntities.Count);
+                    foreach(GameObject entity in entityManager.gameEntities)
+                    {
+                        Entity entityComponent = entity.GetComponent<Entity>();
+                        if (entityComponent != null) 
+                        {
+                            Debug.Log("Entity position: " + entityComponent.gridPosition);
+                            if (entityComponent.gridPosition == currentEcho.gridPosition)
+                            {
+                                Switch switchAtPosition = entity.GetComponent<Switch>();
+                                if (switchAtPosition != null)
+                                {
+                                    // Activate the switch
+                                    switchAtPosition.Activate();
+                                    break; // Break the loop as we've found the switch
+                                }
+                            }
+                        }
+                    }                
                 }
             }
             echonum++;
         }
     }
+}
+
+
+
 
     public void resetEchos(){
         //Clear out the actions to do and add in new ones. 

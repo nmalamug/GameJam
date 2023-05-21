@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Switch : Entity
 {
+    public bool isActive = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +19,17 @@ public class Switch : Entity
         gameLogic = GameObject.FindGameObjectWithTag("Logic").GetComponent<GameLogic>();
     }
     public override void updateEntity(){
-        Debug.Log("Switch is Here!");
     }
+
+    public void Activate()
+    {
+        Debug.Log("Switch state: " + (isActive ? "Active" : "Inactive"));
+        isActive = !isActive; // Switching the state of the switch
+
+        // Visual indication of the switch state can be added here (changing colors, etc.)
+    }
+
+
     public override void setPosition()
     {
         transform.position = gameLogic.getScreenPosition(gridPosition);

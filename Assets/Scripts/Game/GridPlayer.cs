@@ -48,6 +48,7 @@ public class GridPlayer : MonoBehaviour
                     /*
                         Put code here to call function to interact with object
                     */
+                    Debug.Log("Interact Action Triggered");
                     actions.Add(new Action(Action.ActionType.Interact, gridPosition));
                 }else if(Input.GetKeyDown(KeyCode.Q) && echoManager.canCreateEcho()){
                     echoReset();
@@ -68,6 +69,18 @@ public class GridPlayer : MonoBehaviour
     public void updateSurroundings(){
         gameLogic.updateSurroundings();
         echoManager.updateEchos();
+        if(actions.Count > 0 && actions[actions.Count - 1].actionType == Action.ActionType.Interact){
+    foreach(GameObject entity in gameLogic.entityManager.gameEntities){
+        if (entity.transform.position == gameLogic.getScreenPosition(gridPosition)){
+            Switch switchAtPosition = entity.GetComponent<Switch>();
+            if (switchAtPosition != null){
+                Debug.Log("Switch is Here!");
+                switchAtPosition.Activate();
+                break;
+            }
+        }
+    }
+}
     }
 
     public void echoReset(){

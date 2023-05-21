@@ -51,8 +51,31 @@ public class GameLogic : MonoBehaviour
 
 
        //For now, return true
-       return true;
-   }
+    // Define all four directions adjacent to player
+    Vector3Int[] directions = new Vector3Int[] {
+        new Vector3Int(gridpos.x - 1, gridpos.y, gridpos.z), // Left
+        new Vector3Int(gridpos.x + 1, gridpos.y, gridpos.z), // Right
+        new Vector3Int(gridpos.x, gridpos.y - 1, gridpos.z), // Down
+        new Vector3Int(gridpos.x, gridpos.y + 1, gridpos.z)  // Up
+    };
+
+    // Check each direction for an interactable entity
+    foreach (Vector3Int direction in directions) {
+        foreach(GameObject entity in entityManager.gameEntities){
+            if (entity.transform.position == getScreenPosition(direction)){
+                Switch switchAtPosition = entity.GetComponent<Switch>();
+                if (switchAtPosition != null){
+                    // If entity at position has a Switch component, it's interactable
+                    return true;
+                }
+            }
+        }
+    }
+    
+    // If we get here, there were no interactable entities adjacent to player
+    return false;
+}
+
 
 
    public bool isValidMove(string moveDirection){
