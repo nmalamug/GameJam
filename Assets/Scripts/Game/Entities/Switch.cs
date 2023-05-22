@@ -17,8 +17,14 @@ public class Switch : Entity
         isActive = !isActive;
         Debug.Log("switch has been flipped");
 
-        if (OnActivate != null)
+        if (OnActivate != null){
+            if(transform.rotation == new Quaternion(0,180,0,1)){
+                transform.rotation = new Quaternion(0,0,0,1);
+            }else{
+                transform.rotation = new Quaternion(0,180,0,1);
+            }
             OnActivate.Invoke(); // Invoke the event when the switch is activated
+        }
     }
 
     

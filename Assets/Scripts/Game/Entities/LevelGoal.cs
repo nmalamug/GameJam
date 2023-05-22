@@ -25,8 +25,7 @@ public class LevelGoal : Entity
                 SceneManager.LoadScene("uiScene", LoadSceneMode.Additive);
             break;
             case("Level01"):
-                SceneManager.LoadScene("Level02");
-                SceneManager.LoadScene("uiScene", LoadSceneMode.Additive);
+                SceneManager.LoadScene("EndGame");
             break;
             case("Level02"):
                 SceneManager.LoadScene("Level03");

@@ -17,7 +17,6 @@ public class GridPlayer : MonoBehaviour
     public float speed = 15;
     public int id = 0;
 
-
     List<Collider2D>inColliders= new List<Collider2D>();
 
     // Start is called before the first frame update
